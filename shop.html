@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | My Cutie</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#ffd6e7',
+                            DEFAULT: '#ff85b3',
+                            dark: '#ff4081',
+                            darker: '#c60055',
+                        },
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ff85b3;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff4081;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-dark font-sans antialiased">
+    <!-- Navbar (Same as Index) -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <div
+                            class="w-10 h-10 bg-brand-dark rounded-full flex items-center justify-center text-white font-serif italic text-xl shadow-lg group-hover:bg-brand transition-colors">
+                            M</div>
+                        <span class="font-serif font-bold text-2xl tracking-tight">My Cutie<span
+                                class="text-brand-dark">.</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html"
+                        class="text-gray-800 hover:text-brand-dark font-medium transition-colors">Home</a>
+                    <a href="shop.html" class="text-brand-dark font-bold transition-colors">Shop</a>
+                    <a href="about.html"
+                        class="text-gray-800 hover:text-brand-dark font-medium transition-colors">About</a>
+                    <a href="contact.html"
+                        class="text-gray-800 hover:text-brand-dark font-medium transition-colors">Contact</a>
+                    <button class="relative p-2 text-gray-800 hover:text-brand-dark transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-brand-dark rounded-full">0</span>
+                    </button>
+                    <a href="#"
+                        class="bg-brand-dark text-white px-6 py-2 rounded-full font-medium hover:bg-brand transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Login</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-800 hover:text-brand-dark focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 z-40 shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-brand-dark hover:bg-gray-50">Home</a>
+                <a href="shop.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-brand-dark hover:bg-gray-50">Shop</a>
+                <a href="about.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-brand-dark hover:bg-gray-50">About</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-brand-dark hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="pt-32 pb-12 bg-gray-100 text-center">
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">Shop All</h1>
+        <p class="text-gray-600 max-w-2xl mx-auto px-4">Find your new favorite outfit from our exclusive collection.</p>
+    </div>
+
+    <!-- Shop Content -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Sidebar Filters -->
+                <div class="w-full md:w-64 flex-shrink-0">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm sticky top-24">
+                        <h3 class="font-bold text-lg mb-4">Categories</h3>
+                        <ul class="space-y-2 text-gray-600 mb-8">
+                            <li><a href="#"
+                                    class="block hover:text-brand-dark transition-colors font-semibold text-brand-dark">All
+                                    Products</a></li>
+                            <li><a href="#" class="block hover:text-brand-dark transition-colors">New Arrivals</a></li>
+                            <li><a href="#" class="block hover:text-brand-dark transition-colors">Dresses</a></li>
+                            <li><a href="#" class="block hover:text-brand-dark transition-colors">Tops</a></li>
+                            <li><a href="#" class="block hover:text-brand-dark transition-colors">Bottoms</a></li>
+                            <li><a href="#" class="block hover:text-brand-dark transition-colors">Outerwear</a></li>
+                            <li><a href="#" class="block hover:text-brand-dark transition-colors">Accessories</a></li>
+                        </ul>
+
+                        <h3 class="font-bold text-lg mb-4">Price Range</h3>
+                        <div class="flex items-center gap-2 mb-8">
+                            <input type="number" placeholder="Min"
+                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-brand">
+                            <span>-</span>
+                            <input type="number" placeholder="Max"
+                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-brand">
+                        </div>
+
+                        <button
+                            class="w-full bg-dark text-white py-2 rounded-lg hover:bg-gray-800 transition-colors">Filter</button>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-gray-500">Showing 9 items</span>
+                        <select
+                            class="border-none bg-white py-2 pl-4 pr-8 rounded-lg shadow-sm focus:ring-1 focus:ring-brand">
+                            <option>Sort by: Featured</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Newest</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Product 1 -->
+                        <div
+                            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                    alt="Product"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <button
+                                    class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-brand-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-brand-dark hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-md font-bold text-gray-900">Floral Summer Dress</h3>
+                                <p class="text-sm text-gray-500 mb-2">Casual</p>
+                                <span class="text-lg font-bold text-brand-dark">$45.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div
+                            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1529139574466-a302c2753818?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                    alt="Product"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <button
+                                    class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-brand-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-brand-dark hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-md font-bold text-gray-900">Elegant Top</h3>
+                                <p class="text-sm text-gray-500 mb-2">Tops</p>
+                                <span class="text-lg font-bold text-brand-dark">$32.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div
+                            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1552874869-8163e32958e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                    alt="Product"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <button
+                                    class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-brand-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-brand-dark hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-md font-bold text-gray-900">Cozy Sweater</h3>
+                                <p class="text-sm text-gray-500 mb-2">Winter</p>
+                                <span class="text-lg font-bold text-brand-dark">$55.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div
+                            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                    alt="Product"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <button
+                                    class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-brand-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-brand-dark hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-md font-bold text-gray-900">Denim Jacket</h3>
+                                <p class="text-sm text-gray-500 mb-2">Outerwear</p>
+                                <span class="text-lg font-bold text-brand-dark">$68.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div
+                            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1627225924765-552d49cf474d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                    alt="Product"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <button
+                                    class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-brand-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-brand-dark hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-md font-bold text-gray-900">White Summer Top</h3>
+                                <p class="text-sm text-gray-500 mb-2">Tops</p>
+                                <span class="text-lg font-bold text-brand-dark">$25.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div
+                            class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1574634534894-89d7576f8259?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                                    alt="Product"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <button
+                                    class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-brand-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-brand-dark hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-md font-bold text-gray-900">Comfort Cardigan</h3>
+                                <p class="text-sm text-gray-500 mb-2">Winter</p>
+                                <span class="text-lg font-bold text-brand-dark">$48.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center mt-12 gap-2">
+                        <button class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold">1</button>
+                        <button
+                            class="w-10 h-10 rounded-full border border-gray-300 text-gray-600 hover:border-brand-dark hover:text-brand-dark transition-colors">2</button>
+                        <button
+                            class="w-10 h-10 rounded-full border border-gray-300 text-gray-600 hover:border-brand-dark hover:text-brand-dark transition-colors">3</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as Index) -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-gray-400 text-sm">
+                <p>&copy; 2024 My Cutie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
